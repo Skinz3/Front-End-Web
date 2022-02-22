@@ -1,9 +1,9 @@
 export enum JourSemaineType {
-    LUNDI = 1,
-    MARDI,
-    MERCREDI,
-    JEUDI,
-    VENDREDI,
-    SAMEDI,
-    DIMANCHE
+  LUNDI = 0,
+  MARDI,
+  MERCREDI,
+  JEUDI,
+  VENDREDI,
+  SAMEDI,
+  DIMANCHE,
 }
