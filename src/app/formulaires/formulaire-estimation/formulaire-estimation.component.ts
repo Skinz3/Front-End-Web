@@ -37,7 +37,7 @@ export class FormulaireEstimationComponent implements OnInit {
     private clientService: ClientService,
     private siteService: SiteService,
     private route: ActivatedRoute
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.getClients();
@@ -103,12 +103,17 @@ export class FormulaireEstimationComponent implements OnInit {
   }
 
   change(jour: JourSemaineType): void {
+
+
     if (this.joursRegularite.includes(jour)) {
       let index = this.joursRegularite.indexOf(jour);
       delete this.joursRegularite[index];
-    } else if (jour) {
+    }
+    else {
       this.joursRegularite.push(jour);
     }
+
+    console.log(this.joursRegularite);
   }
 
   getClients(): void {
