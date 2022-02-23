@@ -1,3 +1,4 @@
+import { JourSemaineType } from "./../../shared/model/jourSemaineType";
 import { Component, Input, OnInit } from "@angular/core";
 import { FormControl, FormGroup } from "@angular/forms";
 import { Site } from "../../shared/model/site";
@@ -7,7 +8,6 @@ import { ClientService } from "src/app/core/services/client.service";
 import { SiteService } from "src/app/core/services/site.service";
 import { Chantier } from "src/app/shared/model/chantier";
 import { HttpResponse } from "@angular/common/http";
-import { JourSemaineType } from "src/app/shared/model/jourSemaineType";
 import { StatusType } from "src/app/shared/model/statusType";
 import { ChantierGet } from "../../shared/model/chantierGet";
 import { ActivatedRoute } from "@angular/router";
@@ -27,6 +27,11 @@ export class FormulaireEstimationComponent implements OnInit {
   joursRegularite: Array<JourSemaineType> = new Array();
   @Input() chantier: ChantierGet;
   @Input() standalone = true;
+
+  checkedDay: boolean;
+
+  currentJourRegularite: Array<JourSemaineType> = new Array();
+
   filtreClient = "";
   selectedSite: Site;
   selectedClient: Client;
@@ -37,7 +42,7 @@ export class FormulaireEstimationComponent implements OnInit {
     private clientService: ClientService,
     private siteService: SiteService,
     private route: ActivatedRoute
-  ) { }
+  ) {}
 
   ngOnInit(): void {
     this.getClients();
@@ -92,24 +97,38 @@ export class FormulaireEstimationComponent implements OnInit {
         this.chantier.description != null ? this.chantier.description : ""
       ),
 
-      dateDebutRegularite: new FormControl(),
-      dateFinRegularite: new FormControl(),
+      dateDebutRegularite: new FormControl(
+        this.chantier.dateDebutRegularite != null
+          ? this.chantier.dateDebutRegularite
+          : ""
+      ),
+      dateFinRegularite: new FormControl(
+        this.chantier.dateFinRegularite != null
+          ? this.chantier.dateFinRegularite
+          : ""
+      ),
     });
-  }
 
-  resetJours(): void {
-    this.regularite = !this.regularite;
-    this.joursRegularite = new Array();
+    this.regularite = true;
+    this.joursRegularite = this.chantier.joursRegularite;
+    console.log(this.joursRegularite);
   }
+  includeRegularite(id: number): boolean {
+    for (let i = 0; i < this.joursRegularite.length; i++) {
+      var a = this.joursRegularite[i].toString();
+      var b = JourSemaineType[id].toString();
 
+      if (a === b) {
+        return true;
+      }
+    }
+    return false;
+  }
   change(jour: JourSemaineType): void {
-
-
     if (this.joursRegularite.includes(jour)) {
       let index = this.joursRegularite.indexOf(jour);
       delete this.joursRegularite[index];
-    }
-    else {
+    } else {
       this.joursRegularite.push(jour);
     }
 
