@@ -89,7 +89,6 @@
     </fieldset>
 </form>
 
-<mat-checkbox (change)="resetJours()">Regularite</mat-checkbox>
 <br />
 <div *ngIf="regularite">
     <form [formGroup]="nouveauChantierForm">
@@ -105,15 +104,15 @@
                 <mat-date-range-picker #picker></mat-date-range-picker>
             </mat-form-field>
             <div>
-                <mat-checkbox (change)="change(jourSemaineType.LUNDI)" formNameArray="joursArray">Lundi</mat-checkbox>
-                <mat-checkbox (change)="change(jourSemaineType.MARDI)" formNameArray="joursArray">Mardi</mat-checkbox>
-                <mat-checkbox (change)="change(jourSemaineType.MERCREDI)" formNameArray="joursArray">Mercredi
+                <mat-checkbox [checked]="includeRegularite(0)" (change)="change(jourSemaineType.LUNDI)" formNameArray="joursArray">Lundi</mat-checkbox>
+                <mat-checkbox [checked]="includeRegularite(1)" (change)="change(jourSemaineType.MARDI)" formNameArray="joursArray">Mardi</mat-checkbox>
+                <mat-checkbox [checked]="includeRegularite(2)" (change)="change(jourSemaineType.MERCREDI)" formNameArray="joursArray">Mercredi
                 </mat-checkbox>
-                <mat-checkbox (change)="change(jourSemaineType.JEUDI)" formNameArray="joursArray">Jeudi</mat-checkbox>
-                <mat-checkbox (change)="change(jourSemaineType.VENDREDI)" formNameArray="joursArray">Vendredi
+                <mat-checkbox [checked]="includeRegularite(3)" (change)="change(jourSemaineType.JEUDI)" formNameArray="joursArray">Jeudi</mat-checkbox>
+                <mat-checkbox [checked]="includeRegularite(4)" (change)="change(jourSemaineType.VENDREDI)" formNameArray="joursArray">Vendredi
                 </mat-checkbox>
-                <mat-checkbox (change)="change(jourSemaineType.SAMEDI)" formNameArray="joursArray">Samedi</mat-checkbox>
-                <mat-checkbox (change)="change(jourSemaineType.DIMANCHE)" formNameArray="joursArray">Dimanche
+                <mat-checkbox [checked]="includeRegularite(5)" (change)="change(jourSemaineType.SAMEDI)" formNameArray="joursArray">Samedi</mat-checkbox>
+                <mat-checkbox [checked]="includeRegularite(6)" (change)="change(jourSemaineType.DIMANCHE)" formNameArray="joursArray">Dimanche
                 </mat-checkbox>
             </div>
         </fieldset>
