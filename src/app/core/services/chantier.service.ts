@@ -36,6 +36,7 @@ export class ChantierService {
 
   updateChantierById(id: string, chantier: Chantier): Observable<any> {
     var data = JSON.stringify(chantier);
+    console.log(chantier.joursRegularite);
     console.log(data);
     return this.http.put(
       environment.apiUrl + "chantier/update/" + id,

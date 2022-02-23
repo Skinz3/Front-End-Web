@@ -5,19 +5,22 @@
         <mat-form-field>
             <mat-label>Site :</mat-label>
             <mat-select [(value)]="selectedSite.id">
-                <mat-option  *ngFor="let site of sites" (click)="changeSite(site)" [value]=site.id>{{site.nomSite}}</mat-option>
+                <mat-option *ngFor="let site of sites" (click)="changeSite(site)" [value]="site.id">{{ site.nomSite }}</mat-option>
             </mat-select>
         </mat-form-field>
-        <button class="filled-button" color="primary" mat-raised-button routerLink="/nouveau-client">Nouveau client</button>
+        <button class="filled-button" color="primary" mat-raised-button routerLink="/nouveau-client">
+      Nouveau client
+    </button>
         <mat-form-field>
             <mat-label>Filtrer les clients :</mat-label>
-            <input [(ngModel)]="filtreClient" [ngModelOptions]="{standalone: true}" matInput type="search">
+            <input [(ngModel)]="filtreClient" [ngModelOptions]="{ standalone: true }" matInput type="search" />
         </mat-form-field>
         <mat-form-field>
             <mat-select [(value)]="selectedClient.id">
-                <mat-option *ngFor="let client of (clients | filtreNomPrenom:['nom','prenom']:filtreClient)"
-                            (click)="changeClient(client)"
-                            [value]=client.id>{{client.nom}} {{client.prenom}}</mat-option>
+                <mat-option *ngFor="
+            let client of clients
+              | filtreNomPrenom: ['nom', 'prenom']:filtreClient
+          " (click)="changeClient(client)" [value]="client.id">{{ client.nom }} {{ client.prenom }}</mat-option>
             </mat-select>
         </mat-form-field>
     </fieldset>
@@ -25,68 +28,69 @@
         <legend>Nombre d'ouvrier et matériel</legend>
         <mat-form-field>
             <mat-label>Nombre d'ouvriers :</mat-label>
-            <input formControlName="nbOuvrier" matInput type="number">
+            <input formControlName="nbOuvrier" matInput type="number" required />
         </mat-form-field>
-        <mat-form-field >
+        <mat-form-field>
             <mat-label>Matériel :</mat-label>
-            <input formControlName="materiel" matInput type="text">
+            <input formControlName="materiel" matInput type="text" required />
         </mat-form-field>
     </fieldset>
     <fieldset>
         <legend>Lieu d'intervention</legend>
         <mat-form-field>
             <mat-label>Adresse :</mat-label>
-            <input formControlName="adresse" matInput type="text">
+            <input formControlName="adresse" matInput type="text" required />
         </mat-form-field>
         <mat-form-field>
             <mat-label>Complément :</mat-label>
-            <input formControlName="complement" matInput type="text">
+            <input formControlName="complement" matInput type="text" required />
         </mat-form-field>
         <mat-form-field>
             <mat-label>Code Postal :</mat-label>
-            <input formControlName="codePostal" matInput type="text">
+            <input formControlName="codePostal" matInput type="text" required />
         </mat-form-field>
         <mat-form-field>
             <mat-label>Ville :</mat-label>
-            <input formControlName="ville" matInput type="text">
+            <input formControlName="ville" matInput type="text" required />
         </mat-form-field>
     </fieldset>
     <fieldset>
         <legend>Estimation temps</legend>
         <mat-form-field>
             <mat-label>Estimation Temps :</mat-label>
-            <input formControlName="estimationTemps" matInput type="number">
+            <input formControlName="estimationTemps" matInput type="number" />
         </mat-form-field>
     </fieldset>
     <fieldset>
         <legend>Informations du chantier</legend>
         <mat-form-field>
             <mat-label>Téléphone associée :</mat-label>
-            <input formControlName="telephone" matInput type="text">
+            <input formControlName="telephone" matInput type="text" />
         </mat-form-field>
         <mat-form-field>
             <mat-label>Status de Chantier :</mat-label>
-            <mat-select formControlName="statusChantier" >
-                <mat-option *ngFor="let option of states" [value]=option>{{status(option)}}</mat-option>
+            <mat-select formControlName="statusChantier">
+                <mat-option *ngFor="let option of states" [value]="option">{{ status(option) }}
+                </mat-option>
             </mat-select>
         </mat-form-field>
         <mat-form-field>
             <mat-label>Nom du chantier :</mat-label>
-            <input formControlName="nomChantier" matInput type="text">
+            <input formControlName="nomChantier" matInput type="text" />
         </mat-form-field>
         <mat-form-field>
             <mat-label>Informations internes :</mat-label>
-            <input formControlName="informationsInterne" matInput type="text">
+            <input formControlName="informationsInterne" matInput type="text" />
         </mat-form-field>
         <mat-form-field>
             <mat-label>Description :</mat-label>
-            <input formControlName="description" matInput type="text">
+            <input formControlName="description" matInput type="text" />
         </mat-form-field>
     </fieldset>
 </form>
 
 <mat-checkbox (change)="resetJours()">Regularite</mat-checkbox>
-<br>
+<br />
 <div *ngIf="regularite">
     <form [formGroup]="nouveauChantierForm">
         <fieldset>
@@ -94,8 +98,8 @@
             <mat-form-field>
                 <mat-label>Date Debut-Fin Régularité :</mat-label>
                 <mat-date-range-input [rangePicker]="picker">
-                    <input formControlName="dateDebutRegularite" matStartDate placeholder="Start date">
-                    <input formControlName="dateFinRegularite" matEndDate placeholder="End date">
+                    <input formControlName="dateDebutRegularite" matStartDate placeholder="Start date" />
+                    <input formControlName="dateFinRegularite" matEndDate placeholder="End date" />
                 </mat-date-range-input>
                 <mat-datepicker-toggle [for]="picker" matSuffix></mat-datepicker-toggle>
                 <mat-date-range-picker #picker></mat-date-range-picker>
@@ -117,5 +121,7 @@
 </div>
 
 <div *ngIf="standalone">
-    <button  (click)="onSubmit()" class="filled-button-saved" color="primary" mat-raised-button>Enregistrer</button>
+    <button (click)="onSubmit()" class="filled-button-saved" color="primary" mat-raised-button>
+    Enregistrer
+  </button>
 </div>

@@ -196,10 +196,24 @@ export class FormulaireEstimationComponent implements OnInit {
         ? null
         : this.nouveauChantierForm.controls.dateFinRegularite.value;
     const joursRegularite = this.joursRegularite;
-
     let chantierUpdated: Chantier;
 
-    if (this.regularite) {
+    if (
+      adresse === null ||
+      telephone === null ||
+      statusChantier === null ||
+      nomChantier === null ||
+      materiel === null ||
+      regularite === null ||
+      description === null ||
+      informationsInterne === null ||
+      dateFinRegularite === null ||
+      dateDebutRegularite === null ||
+      joursRegularite === null
+    ) {
+      window.alert("Veuillez remplir les champs obligatoires!");
+      return;
+    } else if (this.regularite) {
       chantierUpdated = new Chantier(
         site.id,
         client.id,
