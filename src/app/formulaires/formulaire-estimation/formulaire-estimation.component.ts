@@ -42,7 +42,7 @@ export class FormulaireEstimationComponent implements OnInit {
     private clientService: ClientService,
     private siteService: SiteService,
     private route: ActivatedRoute
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.getClients();
@@ -111,7 +111,11 @@ export class FormulaireEstimationComponent implements OnInit {
 
     this.regularite = true;
     this.joursRegularite = this.chantier.joursRegularite;
-    console.log(this.joursRegularite);
+
+
+    if (this.joursRegularite == null) {
+      this.joursRegularite = new Array();
+    }
   }
   includeRegularite(id: number): boolean {
     for (let i = 0; i < this.joursRegularite.length; i++) {
