@@ -5,12 +5,13 @@
         <mat-form-field>
             <mat-label>Site :</mat-label>
             <mat-select [(value)]="selectedSite.id">
-                <mat-option *ngFor="let site of sites" (click)="changeSite(site)" [value]="site.id">{{ site.nomSite }}</mat-option>
+                <mat-option *ngFor="let site of sites" (click)="changeSite(site)" [value]="site.id">{{ site.nomSite }}
+                </mat-option>
             </mat-select>
         </mat-form-field>
         <button class="filled-button" color="primary" mat-raised-button routerLink="/nouveau-client">
-      Nouveau client
-    </button>
+            Nouveau client
+        </button>
         <mat-form-field>
             <mat-label>Filtrer les clients :</mat-label>
             <input [(ngModel)]="filtreClient" [ngModelOptions]="{ standalone: true }" matInput type="search" />
@@ -104,15 +105,22 @@
                 <mat-date-range-picker #picker></mat-date-range-picker>
             </mat-form-field>
             <div>
-                <mat-checkbox [checked]="includeRegularite(0)" (change)="change(jourSemaineType.LUNDI)" formNameArray="joursArray">Lundi</mat-checkbox>
-                <mat-checkbox [checked]="includeRegularite(1)" (change)="change(jourSemaineType.MARDI)" formNameArray="joursArray">Mardi</mat-checkbox>
-                <mat-checkbox [checked]="includeRegularite(2)" (change)="change(jourSemaineType.MERCREDI)" formNameArray="joursArray">Mercredi
+                <mat-checkbox [checked]="includeRegularite(0)" (change)="change(jourSemaineType.LUNDI)"
+                    formNameArray="joursArray">Lundi</mat-checkbox>
+                <mat-checkbox [checked]="includeRegularite(1)" (change)="change(jourSemaineType.MARDI)"
+                    formNameArray="joursArray">Mardi</mat-checkbox>
+                <mat-checkbox [checked]="includeRegularite(2)" (change)="change(jourSemaineType.MERCREDI)"
+                    formNameArray="joursArray">Mercredi
                 </mat-checkbox>
-                <mat-checkbox [checked]="includeRegularite(3)" (change)="change(jourSemaineType.JEUDI)" formNameArray="joursArray">Jeudi</mat-checkbox>
-                <mat-checkbox [checked]="includeRegularite(4)" (change)="change(jourSemaineType.VENDREDI)" formNameArray="joursArray">Vendredi
+                <mat-checkbox [checked]="includeRegularite(3)" (change)="change(jourSemaineType.JEUDI)"
+                    formNameArray="joursArray">Jeudi</mat-checkbox>
+                <mat-checkbox [checked]="includeRegularite(4)" (change)="change(jourSemaineType.VENDREDI)"
+                    formNameArray="joursArray">Vendredi
                 </mat-checkbox>
-                <mat-checkbox [checked]="includeRegularite(5)" (change)="change(jourSemaineType.SAMEDI)" formNameArray="joursArray">Samedi</mat-checkbox>
-                <mat-checkbox [checked]="includeRegularite(6)" (change)="change(jourSemaineType.DIMANCHE)" formNameArray="joursArray">Dimanche
+                <mat-checkbox [checked]="includeRegularite(5)" (change)="change(jourSemaineType.SAMEDI)"
+                    formNameArray="joursArray">Samedi</mat-checkbox>
+                <mat-checkbox [checked]="includeRegularite(6)" (change)="change(jourSemaineType.DIMANCHE)"
+                    formNameArray="joursArray">Dimanche
                 </mat-checkbox>
             </div>
         </fieldset>
@@ -121,6 +129,6 @@
 
 <div *ngIf="standalone">
     <button (click)="onSubmit()" class="filled-button-saved" color="primary" mat-raised-button>
-    Enregistrer
-  </button>
+        Enregistrer
+    </button>
 </div>
