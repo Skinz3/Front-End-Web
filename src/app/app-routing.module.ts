@@ -96,6 +96,7 @@ const routes: Routes = [
   },
   { path: "connexion", component: ConnexionComponent },
   { path: "", component: PageAccueilComponent },
+
   // {path: '', component: HomeComponent, canActivate: [AuthGuard]},
   {
     path: "fiche-intervention/:id",

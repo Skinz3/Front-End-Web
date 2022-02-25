@@ -10,7 +10,7 @@ import { Chantier } from "src/app/shared/model/chantier";
 import { HttpResponse } from "@angular/common/http";
 import { StatusType } from "src/app/shared/model/statusType";
 import { ChantierGet } from "../../shared/model/chantierGet";
-import { ActivatedRoute } from "@angular/router";
+import { ActivatedRoute, Router } from "@angular/router";
 import { MatOptionSelectionChange } from "@angular/material/core";
 
 @Component({
@@ -38,11 +38,13 @@ export class FormulaireEstimationComponent implements OnInit {
   nouveauChantierForm: FormGroup;
 
   constructor(
+    private router: Router,
+
     private chantierService: ChantierService,
     private clientService: ClientService,
     private siteService: SiteService,
     private route: ActivatedRoute
-  ) { }
+  ) {}
 
   ngOnInit(): void {
     this.getClients();
@@ -81,7 +83,6 @@ export class FormulaireEstimationComponent implements OnInit {
         this.chantier.telephone != null ? this.chantier.telephone : ""
       ),
 
-
       statusChantier: new FormControl(
         this.chantier.statusChantier != null
           ? this.convertStatus(this.chantier.statusChantier.toString())
@@ -113,10 +114,7 @@ export class FormulaireEstimationComponent implements OnInit {
     });
   }
 
-
   convertStatus(type: String): number {
-
-
     switch (type) {
       case "ENATTENTE":
         return 0;
@@ -125,9 +123,6 @@ export class FormulaireEstimationComponent implements OnInit {
       case "TERMINE":
         return 2;
     }
-
-
-
   }
   getClients(): void {
     this.clientService.getAllClients().subscribe((data) => {
@@ -290,9 +285,7 @@ export class FormulaireEstimationComponent implements OnInit {
     this.chantierService
       .updateChantierById(this.chantier.id + "", chantierUpdated)
       .subscribe((res: HttpResponse<any>) => {
-        console.log(res.headers.get("Location"));
-        this.ngOnInit();
-        window.location.reload();
+        this.router.navigateByUrl("liste-chantier");
       });
   }
 
