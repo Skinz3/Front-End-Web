@@ -68,4 +68,4 @@ sudo rm -rf /var/www/html
 ```console
 sudo mv /var/www/tezea-chantiers /var/www/html
 ```
-Voilà! Le front a été déplyé avec succès! allez sur [An Internal Link](chantier.tezea/fr) 
+Voilà! Le front a été déplyé avec succès! tapez chantier.tezea.fr dans la bare URL de votre navigateur
