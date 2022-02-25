@@ -33,7 +33,7 @@ Copiez le chemin et exécutez la commande suivant pour copier fichiers dans /dis
 ```java
 scp -r <LE_CHEMIN_QUE_VOUS_AVEZ_COPIEZ_VIA_CTRL+L> ubuntu@5.196.8.112:/home/ubuntu/
 ```
-Un mot de passe vous sera demander : 
+Un mot de passe vous sera demandé : 
 
 ```console
 vJVgFqCdgV2Z
@@ -68,4 +68,4 @@ sudo rm -rf /var/www/html
 ```console
 sudo mv /var/www/tezea-chantiers /var/www/html
 ```
-Voilà! Le front a été déplyé avec succès! tapez chantier.tezea.fr dans la bare URL de votre navigateur
+Voilà! Le front a été déployé avec succès! tapez chantier.tezea.fr dans la bare URL de votre navigateur.
