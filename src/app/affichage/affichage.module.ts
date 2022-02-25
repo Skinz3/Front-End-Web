@@ -16,6 +16,7 @@ import {FormulairesModule} from '../formulaires/formulaires.module';
 import {MatStepperModule} from '@angular/material/stepper';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatGridListModule} from '@angular/material/grid-list';
+import { PageAccueilComponent } from './page-accueil/page-accueil.component';
 
 @NgModule({
     declarations: [
@@ -28,6 +29,7 @@ import {MatGridListModule} from '@angular/material/grid-list';
         DetailDemandeDeChantierComponent,
         ListDemandeDeChantierComponent,
         StepperFicheInterventionComponent,
+        PageAccueilComponent,
     ],
     imports: [
         CommonModule,
