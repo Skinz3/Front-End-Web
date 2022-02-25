@@ -25,9 +25,9 @@ ng build --prod
 ```
 Vous trouverez tous les éléments build dans dist/tezea-chantiers
 
-Ensuite positionnez-vous dans dist/tezea-chantiers, appuyez les 2 touches suivantes en même temps : 
+Ensuite positionnez-vous dans dist/tezea-chantiers, faites un : 
 ```console
-ctrl+L
+ctrl L
 ```
 Copiez le chemin et exécutez la commande suivant pour copier fichiers dans /dist/tezea-chantiers vers le serveur : 
 ```java
