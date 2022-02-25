@@ -23,7 +23,7 @@ npm start
 ```console
 ng build --prod
 ```
-Vous le trouverez tous les éléments build dans dist/tezea-chantiers
+Vous trouverez tous les éléments build dans dist/tezea-chantiers
 
 Ensuite positionnez-vous dans dist/tezea-chantiers, appuyez les 2 touches suivantes en même temps : 
 ```console
