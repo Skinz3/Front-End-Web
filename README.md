@@ -41,7 +41,8 @@ vJVgFqCdgV2Z
 
 ### II-1) Se connecter sur le serveur
 Ouvrez un terminal et exécutez les commandes suivantes : 
-1- ```console
+1- 
+```console
 ssh ubuntu@5.196.8.112
 ```
 2- Mot de passe : 
