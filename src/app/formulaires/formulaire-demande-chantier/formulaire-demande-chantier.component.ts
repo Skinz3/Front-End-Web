@@ -144,9 +144,10 @@ export class FormulaireDemandeChantierComponent implements OnInit {
             .addDemandeDeChantier(chantier)
             .subscribe((res: HttpResponse<any>) => {
                 this.router.navigateByUrl(
-                    "detail-demande-de-chantier/" +
-                    res.headers.get("location").split("/")[2]
+                    "liste-demande-de-chantier"
                 );
+
+                alert("Le chantier a bien été ajouté.");
             });
     }
 }

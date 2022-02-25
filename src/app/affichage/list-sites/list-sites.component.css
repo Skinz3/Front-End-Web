@@ -13,9 +13,9 @@
 }
 
 .list-de-sites-wrapper {
-    width: 65%;
+    width: 98%;
     position: absolute;
-    left: 30%;
+    
     flex-direction: column;
     justify-content: space-between;
 }

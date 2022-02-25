@@ -42,10 +42,11 @@ export class FormulaireEstimationComponent implements OnInit {
     private clientService: ClientService,
     private siteService: SiteService,
     private route: ActivatedRoute
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.getClients();
+    console.log(this.chantier.statusChantier);
     this.getSites();
     this.selectedSite = this.chantier.site;
     this.selectedClient = this.chantier.client;
@@ -79,9 +80,11 @@ export class FormulaireEstimationComponent implements OnInit {
       telephone: new FormControl(
         this.chantier.telephone != null ? this.chantier.telephone : ""
       ),
+
+
       statusChantier: new FormControl(
         this.chantier.statusChantier != null
-          ? this.states[this.chantier.statusChantier]
+          ? this.convertStatus(this.chantier.statusChantier.toString())
           : ""
       ),
       nomChantier: new FormControl(
@@ -108,33 +111,24 @@ export class FormulaireEstimationComponent implements OnInit {
           : ""
       ),
     });
-
-    this.regularite = true;
-    this.joursRegularite = this.chantier.joursRegularite;
-    console.log(this.joursRegularite);
   }
-  includeRegularite(id: number): boolean {
-    for (let i = 0; i < this.joursRegularite.length; i++) {
-      var a = this.joursRegularite[i].toString();
-      var b = JourSemaineType[id].toString();
 
-      if (a === b) {
-        return true;
-      }
-    }
-    return false;
-  }
-  change(jour: JourSemaineType): void {
-    if (this.joursRegularite.includes(jour)) {
-      let index = this.joursRegularite.indexOf(jour);
-      delete this.joursRegularite[index];
-    } else {
-      this.joursRegularite.push(jour);
+
+  convertStatus(type: String): number {
+
+
+    switch (type) {
+      case "ENATTENTE":
+        return 0;
+      case "ENCOURS":
+        return 1;
+      case "TERMINE":
+        return 2;
     }
 
-    console.log(this.joursRegularite);
-  }
 
+
+  }
   getClients(): void {
     this.clientService.getAllClients().subscribe((data) => {
       data.forEach((element) => {
@@ -228,12 +222,10 @@ export class FormulaireEstimationComponent implements OnInit {
       statusChantier === null ||
       nomChantier === null ||
       materiel === null ||
-      regularite === null ||
       description === null ||
       informationsInterne === null ||
       dateFinRegularite === null ||
-      dateDebutRegularite === null ||
-      joursRegularite === null
+      dateDebutRegularite === null
     ) {
       window.alert("Veuillez remplir les champs obligatoires!");
       return;

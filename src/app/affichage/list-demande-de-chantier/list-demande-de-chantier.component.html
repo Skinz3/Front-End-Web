@@ -1,16 +1,6 @@
 <div class="titre-list-demandes">
 </div>
-<div class="outils-wrapper">
-    <div class="left-content">
-        <mat-card>
-            <div class="left-buttons-filtre">
-                <button class="filled-button" color="primary" mat-raised-button>Lieu</button>
-                <button class="filled-button" color="primary" mat-raised-button>Durée</button>
-                <button class="filled-button" color="primary" mat-raised-button>Matériel</button>
-            </div>
-        </mat-card>
-    </div>
-</div>
+
 <div class="list-de-demandes-wrapper">
     <mat-toolbar>
         <input matInput placeholder="rechercher" value="Cherche">
@@ -56,14 +46,9 @@
         </mat-card>
     </div>
     <mat-toolbar>
-        <mat-paginator [length]="length"
-                       [pageSizeOptions]="[5, 10, 25, 100]"
-        >
+        <mat-paginator [length]="length" [pageSizeOptions]="[5, 10, 25, 100]">
         </mat-paginator>
     </mat-toolbar>
     <button mat-raised-button routerLink="/nouvelle-demande-de-chantier"> Nouvelle Demande de Chantier</button>
 
 </div>
-
-
-

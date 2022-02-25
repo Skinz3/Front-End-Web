@@ -1,16 +1,6 @@
 <div class="titre-list-clients">
 </div>
-<div class="outils-wrapper">
-    <div class="left-content">
-        <mat-card>
-            <div class="left-buttons-filtre">
-                <button class="filled-button" color="primary" mat-raised-button>Lieu</button>
-                <button class="filled-button" color="primary" mat-raised-button>Durée</button>
-                <button class="filled-button" color="primary" mat-raised-button>Matériel</button>
-            </div>
-        </mat-card>
-    </div>
-</div>
+
 
 <!--
 <button mat-button (click)="accordion.openAll()">Expand All</button>
@@ -59,13 +49,9 @@
         </mat-card>
     </div>
     <mat-toolbar>
-        <mat-paginator [length]="length"
-                       [pageSizeOptions]="[5, 10, 25, 100]"
-        >
+        <mat-paginator [length]="length" [pageSizeOptions]="[5, 10, 25, 100]">
         </mat-paginator>
     </mat-toolbar>
     <button mat-raised-button routerLink="/nouveau-client"> Nouveau Client</button>
 
 </div>
-
-

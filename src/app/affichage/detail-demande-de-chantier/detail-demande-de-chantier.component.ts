@@ -1,13 +1,13 @@
-import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute, Router} from '@angular/router';
-import {DemandeDeChantierService} from '../../core/services/demande-de-chantier.service';
-import {DemandeDeChantierGet} from '../../shared/model/demandeDeChantierGet';
-import {AffichageUtilsService} from '../affichage-utils.service';
-import {ChantierGet} from '../../shared/model/chantierGet';
-import {Chantier} from '../../shared/model/chantier';
-import {ChantierService} from '../../core/services/chantier.service';
-import {HttpResponse} from '@angular/common/http';
-import {StatusIntervention} from '../../shared/model/statusIntervention';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { DemandeDeChantierService } from '../../core/services/demande-de-chantier.service';
+import { DemandeDeChantierGet } from '../../shared/model/demandeDeChantierGet';
+import { AffichageUtilsService } from '../affichage-utils.service';
+import { ChantierGet } from '../../shared/model/chantierGet';
+import { Chantier } from '../../shared/model/chantier';
+import { ChantierService } from '../../core/services/chantier.service';
+import { HttpResponse } from '@angular/common/http';
+import { StatusIntervention } from '../../shared/model/statusIntervention';
 
 @Component({
     selector: 'app-detail-demande-de-chantier',
@@ -29,9 +29,9 @@ export class DetailDemandeDeChantierComponent implements OnInit {
     ngOnInit(): void {
         const id = this.route.snapshot.paramMap.get('id');
         if (id !== null && this.demandeDeChantier == null) {
-        this.demandeDeChantierService.getDemandeDeChantierById(id).subscribe(
-            (res: DemandeDeChantierGet) => this.demandeDeChantier = res
-        );
+            this.demandeDeChantierService.getDemandeDeChantierById(id).subscribe(
+                (res: DemandeDeChantierGet) => this.demandeDeChantier = res
+            );
         }
     }
 
@@ -42,7 +42,8 @@ export class DetailDemandeDeChantierComponent implements OnInit {
             null, null, null, null, StatusIntervention.ESTIMATION);
         this.chantierService.addChantier(fiche).subscribe(
             (res: HttpResponse<any>) => {
-                this.router.navigateByUrl('fiche-intervention/' + res.headers.get('location').split('/')[2]);
+                this.router.navigateByUrl('liste-chantier');
+                alert("La fiche d'invervention a été crée.");
             }
         );
     }
