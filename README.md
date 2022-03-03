@@ -33,11 +33,9 @@ Copiez le chemin et exécutez la commande suivant pour copier fichiers dans /dis
 ```java
 scp -r <LE_CHEMIN_QUE_VOUS_AVEZ_COPIEZ_VIA_CTRL+L> ubuntu@5.196.8.112:/home/ubuntu/
 ```
-Un mot de passe vous sera demandé : 
+Un mot de passe vous sera demandé : Contacter l'administrateur :)
 
-```console
-vJVgFqCdgV2Z
-```
+
 
 ### II-1) Se connecter sur le serveur
 Ouvrez un terminal et exécutez les commandes suivantes : 
@@ -45,10 +43,7 @@ Ouvrez un terminal et exécutez les commandes suivantes :
 ```console
 ssh ubuntu@5.196.8.112
 ```
-2- Mot de passe : 
-```console
-vJVgFqCdgV2Z
-```
+2- Mot de passe : à récupérer auprès de l'admnistrateur :)
 3- 
 ```console
 export PATH=/usr/bin/:$PATH
